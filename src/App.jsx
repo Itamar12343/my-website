@@ -1,4 +1,5 @@
 import About from "./components/about";
+import ErrPage from "./pages/ErrPage";
 import HomePage from "./pages/home-page";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
@@ -9,7 +10,7 @@ function App() {
       <BrowserRouter>
          <Routes>
             <Route path="/" element={<HomePage/>}/>
-            <Route path="*" element={<About/>}/>
+            <Route path="*" element={<ErrPage/>}/>
          </Routes>
       </BrowserRouter>
     </div>

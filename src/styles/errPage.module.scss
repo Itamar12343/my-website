@@ -1,0 +1,21 @@
+.btn {
+    background-color: rgb(191, 254, 217);
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    border: none;
+    font-size: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:active {
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+.title {
+    text-align: center;
+}
