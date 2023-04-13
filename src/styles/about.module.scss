@@ -1,6 +1,7 @@
+@import"variables";
 .box {
     width: 100%;
-    background-color: rgb(0, 0, 0, 0.4);
+    background-color: $glassy-black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,9 +98,16 @@
 .skill-box {
     height: 200px;
     width: 100%;
-    background-color: #aaa;
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0%);
     text-align: center;
+    background-color: $glassy-black;
+}
+
+.skill-title {
+    color: #fff;
+    font-size: 40px;
+    position: relative;
+    top: -50px;
 }
