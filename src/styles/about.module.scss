@@ -1,15 +1,19 @@
 .box {
     width: 100%;
     background-color: rgb(0, 0, 0, 0.4);
-    position: absolute;
-    top: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.container {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+}
+
 .img {
-    height: 88%;
+    height: 80%;
     width: 400px;
     background-image: url("../media/me.png");
     background-position: center;
@@ -40,7 +44,6 @@
     font-size: 30px;
     position: relative;
     left: 0;
-    margin-top: 40px;
     margin-right: 450px;
     padding: 20px;
     color: #fff;
@@ -89,4 +92,14 @@
         width: 80%;
         top: 40px;
     }
+}
+
+.skill-box {
+    height: 200px;
+    width: 100%;
+    background-color: #aaa;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    text-align: center;
 }

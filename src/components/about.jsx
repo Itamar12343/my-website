@@ -6,6 +6,7 @@ const About = () => {
     const boxRef = useRef(null);
     const textElementRef = useRef(null);
     const imgref = useRef(null);
+    let imgAnimationDelay = false;
 
     useEffect(()=>{
         matchBoxHeightToChildren();
@@ -21,9 +22,14 @@ const About = () => {
         entries.forEach(entry=>{
             if(entry.isIntersecting){
                 scrollAnimation(last.target);
-                //observer.unobserve(last.target);
+                imgAnimationDelay = true;
+                setTimeout(() => {
+                    imgAnimationDelay = false;
+                }, 1000);
             }else{
+                if(imgAnimationDelay === false){
                 endScrollAnimation(last.target);
+                }
             }
         });
     },
@@ -40,7 +46,6 @@ const About = () => {
         entries.forEach(entry=>{
             if(entry.isIntersecting){
                 scrollAnimation(last.target);
-                //observer.unobserve(last.target);
             }else{
                 endScrollAnimation(last.target);
             }
@@ -49,7 +54,7 @@ const About = () => {
     {
       root: null,
       rootMargin: "0px",
-      threshold: 0.6
+      threshold: window.innerWidth > 938 ? 0.7 : 0.6
     });
 
 
@@ -62,7 +67,7 @@ const About = () => {
 
     function matchBoxHeightToChildren(){
         if(window.innerWidth < 938){
-            boxRef.current.style.height = `${textElementRef.current.offsetHeight + 580}px`;
+            boxRef.current.style.height = `${textElementRef.current.offsetHeight + 480}px`;
             }else{
                 boxRef.current.style.height = `${textElementRef.current.offsetHeight + 100}px`;
             }
@@ -95,10 +100,18 @@ const About = () => {
     }
 
     return ( 
-        <div ref={boxRef} className={style.box}>
-            <p ref={textElementRef} className={style.text}>{text}</p>
-            <div className={style.img} ref={imgref}></div>
-        </div>
+        <>
+        <div className={style.container}>
+             <div ref={boxRef} className={style.box}>
+                   <p ref={textElementRef} className={style.text}>{text}</p>
+                   <div className={style.img} ref={imgref}></div>
+              </div>
+        
+               <div className={style["skill-box"]}>
+                   <h2 className={style["skill-title"]}>skills</h2>
+                </div>
+            </div>
+        </>
      );
 }
  
