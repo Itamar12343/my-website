@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import style from "../styles/about.module.scss";
 
 import htmlSvg from "../media/html.svg";
@@ -12,12 +12,14 @@ const About = () => {
     const boxRef = useRef(null);
     const textElementRef = useRef(null);
     const imgref = useRef(null);
+    const svgsRef = useRef(null);
     let imgAnimationDelay = false;
+    const [isIconAnimation,setIsIconAnimation] = useState(false);
 
     useEffect(()=>{
         matchBoxHeightToChildren();
         startObservetion();
-    });
+    },[]);
 
     window.addEventListener("resize",()=>{
         matchBoxHeightToChildren();
@@ -68,6 +70,8 @@ const About = () => {
         setTimeout(() => {        
             imgObserver.observe(imgref.current);
             textObserver.observe(textElementRef.current);
+            imgObserver.observe(svgsRef.current);
+            imgref.current.scrollIntoView({behavior: "smooth", block: "center"});
         }, 1000);
     }
 
@@ -87,8 +91,10 @@ const About = () => {
                 element.style.transform = "translate(-50%,0) scale(1)";
             }
 
-        }else{
+        }else if(element.className.includes("text")){
             element.style.opacity = "1";
+        }else{
+            setIsIconAnimation(true);
         }
     }
 
@@ -100,8 +106,10 @@ const About = () => {
                 element.style.transform = "translate(-50%,0) scale(0)";
             }
 
-        }else{
+        }else if(element.className.includes("text")){
             element.style.opacity = "0";
+        }else{
+            setIsIconAnimation(false);
         }
     }
 
@@ -115,12 +123,12 @@ const About = () => {
         
                <div className={style["skill-box"]}>
                    <h2 className={style["skill-title"]}>skills</h2>
-                   <div className={style.svgs}>
-                       <img className={style.svg} src={htmlSvg}/>
-                       <img className={style.svg} src={sassSvg}/>
-                       <img className={style.svg} src={cssSvg}/>
-                       <img className={style.svg} src={reactSvg}/>
-                       <img className={style.svg} src={nodejsSvg}/>
+                   <div className={style.svgs} ref={svgsRef}>
+                       <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={htmlSvg}/>
+                       <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={sassSvg}/>
+                       <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={cssSvg}/>
+                       <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={reactSvg}/>
+                       <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={nodejsSvg}/>
                    </div>
                 </div>
             </div>
