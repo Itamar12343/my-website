@@ -122,7 +122,7 @@ const About = () => {
               </div>
         
                <div className={style["skill-box"]}>
-                   <h2 className={style["skill-title"]}>skills</h2>
+                   <h2 className={style["skill-title"]} style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}}>skills</h2>
                    <div className={style.svgs} ref={svgsRef}>
                        <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={htmlSvg}/>
                        <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={sassSvg}/>
