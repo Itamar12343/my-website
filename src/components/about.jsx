@@ -1,6 +1,12 @@
 import { useEffect, useRef } from "react";
 import style from "../styles/about.module.scss";
 
+import htmlSvg from "../media/html.svg";
+import cssSvg from "../media/css.svg";
+import sassSvg from "../media/sass.svg";
+import reactSvg from "../media/react.svg";
+import nodejsSvg from "../media/nodejs.svg";
+
 const About = () => {
     const text = "hey, my name is Itamar and I am 16 years old. I started when I was 14 and I learned wb development for 2 years. I am self tought and built a lot of projects, recently I learned react and started doing a litle bit of backend and webSockets but I am more focused at frontend development. I love coding and I have been doing it for fun and I built most of the projects for friends and family"
     const boxRef = useRef(null);
@@ -25,7 +31,7 @@ const About = () => {
                 imgAnimationDelay = true;
                 setTimeout(() => {
                     imgAnimationDelay = false;
-                }, 1000);
+                }, 500);
             }else{
                 if(imgAnimationDelay === false){
                 endScrollAnimation(last.target);
@@ -36,7 +42,7 @@ const About = () => {
     {
       root: null,
       rootMargin: "0px",
-      threshold: 0.6
+      threshold: 0.5
     });
 
 
@@ -54,7 +60,7 @@ const About = () => {
     {
       root: null,
       rootMargin: "0px",
-      threshold: window.innerWidth > 938 ? 0.7 : 0.6
+      threshold: window.innerWidth > 938 ? 0.5 : 0.1
     });
 
 
@@ -109,6 +115,13 @@ const About = () => {
         
                <div className={style["skill-box"]}>
                    <h2 className={style["skill-title"]}>skills</h2>
+                   <div className={style.svgs}>
+                       <img className={style.svg} src={htmlSvg}/>
+                       <img className={style.svg} src={sassSvg}/>
+                       <img className={style.svg} src={cssSvg}/>
+                       <img className={style.svg} src={reactSvg}/>
+                       <img className={style.svg} src={nodejsSvg}/>
+                   </div>
                 </div>
             </div>
         </>

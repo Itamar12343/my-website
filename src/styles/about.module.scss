@@ -96,7 +96,7 @@
 }
 
 .skill-box {
-    height: 200px;
+    height: auto;
     width: 100%;
     position: absolute;
     left: 50%;
@@ -109,5 +109,16 @@
     color: #fff;
     font-size: 40px;
     position: relative;
-    top: -50px;
+    top: 0px;
+}
+
+.svgs {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 100%;
+}
+
+.svg {
+    margin: 10px;
 }
