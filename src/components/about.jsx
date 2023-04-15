@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import style from "../styles/about.module.scss";
+import store from "../redux/store";
+import {useDispatch} from "react-redux";
 
 import htmlSvg from "../media/html.svg";
 import cssSvg from "../media/css.svg";
@@ -15,6 +17,7 @@ const About = () => {
     const svgsRef = useRef(null);
     let imgAnimationDelay = false;
     const [isIconAnimation,setIsIconAnimation] = useState(false);
+    const dispatch = useDispatch();
 
     useEffect(()=>{
         matchBoxHeightToChildren();
@@ -111,6 +114,17 @@ const About = () => {
         }else{
             setIsIconAnimation(false);
         }
+    }
+
+
+    const unsubsctibe = store.subscribe(()=>{
+        let tray = store.getState();
+        console.log(tray);
+    });
+
+    document.onclick = ()=>{
+        dispatch({type: "add"});
+        //dispatch({type: "min"});
     }
 
     return ( 
