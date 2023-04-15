@@ -22,6 +22,7 @@ const About = () => {
     useEffect(()=>{
         matchBoxHeightToChildren();
         startObservetion();
+        listenToRedux();
     },[]);
 
     window.addEventListener("resize",()=>{
@@ -116,15 +117,16 @@ const About = () => {
         }
     }
 
-
-    const unsubsctibe = store.subscribe(()=>{
-        let tray = store.getState();
-        console.log(tray);
-    });
+    
+    function listenToRedux(){
+        const unsubsctibe = store.subscribe(()=>{
+            let navbarStatus = store.getState().navbar;
+            console.log(navbarStatus);
+        });
+    }
 
     document.onclick = ()=>{
-        dispatch({type: "add"});
-        //dispatch({type: "min"});
+        dispatch({type: "about", text: true});
     }
 
     return ( 

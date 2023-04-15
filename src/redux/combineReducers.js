@@ -1,7 +1,6 @@
 import { combineReducers } from "redux";
-import tray from "./reducers/try";
-import hh from "./reducers/hh";
+import navbar from "./reducers/navbar";
 
-const reducers = combineReducers({ tray, hh });
+const reducers = combineReducers({ navbar });
 
 export default reducers;
