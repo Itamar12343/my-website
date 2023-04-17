@@ -141,8 +141,8 @@ const About = () => {
                    <h2 className={style["skill-title"]} style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}}>skills</h2>
                    <div className={style.svgs} ref={svgsRef}>
                        <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={htmlSvg}/>
-                       <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={sassSvg}/>
                        <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={cssSvg}/>
+                       <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={sassSvg}/>
                        <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={reactSvg}/>
                        <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={nodejsSvg}/>
                    </div>

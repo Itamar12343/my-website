@@ -6,16 +6,13 @@ const initial = {
 }
 
 const navbar = (state = initial, action) => {
-    if (action.type === "about") {
-        let newObject = {};
-        for (let key in state) {
-            newObject[key] = state[key];
-        }
-    }
-    if (action.type === undefined) {
-        return {
-            state
-        }
+    switch (action.type) {
+        case "about":
+            let newObject = state;
+            newObject.about = action.text;
+            return newObject;
+        default:
+            return state;
     }
 }
 
