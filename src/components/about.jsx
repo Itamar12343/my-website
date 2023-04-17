@@ -75,7 +75,6 @@ const About = () => {
             imgObserver.observe(imgref.current);
             textObserver.observe(textElementRef.current);
             imgObserver.observe(svgsRef.current);
-            imgref.current.scrollIntoView({behavior: "smooth", block: "center"});
         }, 1000);
     }
 
@@ -121,12 +120,21 @@ const About = () => {
     function listenToRedux(){
         const unsubsctibe = store.subscribe(()=>{
             let navbarStatus = store.getState().navbar;
-            console.log(navbarStatus);
+            if(navbarStatus.home === true){
+                dispatch({type: "home", text: false});
+                window.scrollTo({behavior: "smooth", top:0})
+            }
+            if(navbarStatus.about === true){
+                dispatch({type: "about", text: false});
+                imgref.current.scrollIntoView({behavior: "smooth", block: "center"});
+            }
+            if(navbarStatus.contact === true){
+                dispatch({type: "contact", text: false});
+            }
+            if(navbarStatus.projects === true){
+                dispatch({type: "projects", text: false});
+            }
         });
-    }
-
-    document.onclick = ()=>{
-        dispatch({type: "about", text: true});
     }
 
     return ( 

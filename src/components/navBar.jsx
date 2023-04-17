@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import style from "../styles/navbar.module.scss";
+import { useDispatch } from "react-redux";
 
 const NavBar = () => {
     const [width, setWidth] = useState(window.innerWidth);
@@ -7,6 +8,7 @@ const NavBar = () => {
     const navbarRef = useRef(null);
     const [prevScroll, setPrevScroll] = useState(0);
     const [Scroll, setScroll] = useState(0);
+    const dispatch = useDispatch();
 
     window.addEventListener("resize",()=>{
         setWidth(window.innerWidth);
@@ -38,6 +40,11 @@ const NavBar = () => {
     }
 
 
+    function goTo(e){
+        let path = e.target.textContent;
+        dispatch({type: path, text: true});
+    }
+
     return ( 
         <>
         {width < 536 && 
@@ -48,10 +55,10 @@ const NavBar = () => {
         </div>
         }
         <div style={{top: Scroll > prevScroll ? "-100px" : width > 536 && "0px"}} className={style.navbar} ref={navbarRef}>
-            <div className={`${style.nav} ${style.home}`}>home</div>
-            <div className={`${style.nav} ${style.about}`}>about</div>
-            <div className={`${style.nav} ${style.contact}`}>contact</div>
-            <div className={`${style.nav} ${style.projects}`}>projects</div>
+            <div className={`${style.nav} ${style.home}`} onClick={goTo}>home</div>
+            <div className={`${style.nav} ${style.about}`} onClick={goTo}>about</div>
+            <div className={`${style.nav} ${style.contact}`} onClick={goTo}>contact</div>
+            <div className={`${style.nav} ${style.projects}`} onClick={goTo}>projects</div>
         </div>
         </>
      );
