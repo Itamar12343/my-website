@@ -57,8 +57,8 @@ const NavBar = () => {
         <div style={{top: Scroll > prevScroll ? "-100px" : width > 536 && "0px"}} className={style.navbar} ref={navbarRef}>
             <div className={`${style.nav} ${style.home}`} onClick={goTo}>home</div>
             <div className={`${style.nav} ${style.about}`} onClick={goTo}>about</div>
-            <div className={`${style.nav} ${style.contact}`} onClick={goTo}>contact</div>
             <div className={`${style.nav} ${style.projects}`} onClick={goTo}>projects</div>
+            <div className={`${style.nav} ${style.contact}`} onClick={goTo}>contact</div>
         </div>
         </>
      );

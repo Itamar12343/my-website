@@ -137,6 +137,10 @@ const About = () => {
         });
     }
 
+    function open_github(){
+        window.open("")
+    }
+
     return ( 
         <>
         <div className={style.container}>
@@ -154,6 +158,7 @@ const About = () => {
                        <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={reactSvg}/>
                        <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={nodejsSvg}/>
                    </div>
+                   <button className={style.github}>my github page</button>
                 </div>
             </div>
         </>
