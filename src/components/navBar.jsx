@@ -24,17 +24,16 @@ const NavBar = () => {
         setScroll(window.scrollY);
     });
 
-    function nav_btn_clicked(e){
-       open_close_navbar();
-    }
 
     function open_close_navbar(){
         if(isNavbarOpen === false){
             navbarRef.current.style.opacity = "1";
+            navbarRef.current.style.pointerEvents = "all";
             setIsNavbarOpen(true);
         }
         if(isNavbarOpen === true){
             navbarRef.current.style.opacity = "0";
+            navbarRef.current.style.pointerEvents = "none";
             setIsNavbarOpen(false);
         }
     }
@@ -48,7 +47,7 @@ const NavBar = () => {
     return ( 
         <>
         {width < 536 && 
-        <div className={style["nav-btn"]} onClick={nav_btn_clicked}>
+        <div className={style["nav-btn"]} onClick={open_close_navbar}>
             <div className={isNavbarOpen === false ? style.stick1 : style["stick1-active"]}></div>
             <div className={isNavbarOpen === false ? style.stick2 : style["stick2-active"]}></div>
             <div className={isNavbarOpen === false ? style.stick3 : style["stick3-active"]}></div>

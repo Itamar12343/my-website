@@ -158,7 +158,7 @@ const About = () => {
                        <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={reactSvg}/>
                        <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={nodejsSvg}/>
                    </div>
-                   <button className={style.github} onClick={open_github}>my github page</button>
+                   <button className={style.github} onClick={open_github} style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}}>my github page</button>
                 </div>
             </div>
         </>
