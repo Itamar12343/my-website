@@ -53,7 +53,7 @@ const NavBar = () => {
             <div className={isNavbarOpen === false ? style.stick3 : style["stick3-active"]}></div>
         </div>
         }
-        <div style={{top: Scroll > prevScroll ? "-100px" : width > 536 && "0px"}} className={style.navbar} ref={navbarRef}>
+        <div style={{top: Scroll > prevScroll ? "-100px" : width > 536 && "0px", backgroundColor: Scroll > 170? "rgb(255,255,255,0.9)": "rgb(255,255,255,0.6)"}} className={style.navbar} ref={navbarRef}>
             <div className={`${style.nav} ${style.home}`} onClick={goTo}>home</div>
             <div className={`${style.nav} ${style.about}`} onClick={goTo}>about</div>
             <div className={`${style.nav} ${style.projects}`} onClick={goTo}>projects</div>

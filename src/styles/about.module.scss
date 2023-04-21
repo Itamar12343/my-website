@@ -123,19 +123,22 @@
 .svg {
     margin: 10px;
     transition: 0.3s;
+    transform: scale(0);
 }
 
 .github {
+    background-color: rgb(0, 0, 0, 0.4);
+    color: #fff;
     padding: 10px;
     margin: 20px;
     font-size: 30px;
     cursor: pointer;
-    background-color: rgb(255, 255, 255);
     border: none;
     border-radius: 10px;
     transition: 0.3s;
 }
 
 .github:hover {
-    background-color: rgb(255, 255, 255, 0.4);
+    background-color: rgb(255, 255, 255);
+    color: black;
 }

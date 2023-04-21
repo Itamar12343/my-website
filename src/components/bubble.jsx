@@ -5,16 +5,26 @@ const Bubble = () => {
   const titleRef = useRef(null);
 
   window.onscroll = ()=>{
+    checkTitleVisibility()
+  }
+
+  window.onload = ()=>{
+    if(window.scrollY >= 174){
+      titleRef.current.style.opacity = "0";
+    }else{
+      setTimeout(() => {
+        titleRef.current.style.opacity = "1";
+      }, 1000);
+    }
+  }
+  
+  function checkTitleVisibility(){
     if(window.scrollY >= 174){
       titleRef.current.style.opacity = "0";
     }else{
       titleRef.current.style.opacity = "1";
     }
   }
-
-  setTimeout(() => {
-    titleRef.current.style.opacity = "1";
-  }, 1000);
 
 
     return ( 

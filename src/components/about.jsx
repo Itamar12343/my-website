@@ -10,7 +10,7 @@ import reactSvg from "../media/react.svg";
 import nodejsSvg from "../media/nodejs.svg";
 
 const About = () => {
-    const text = "hey, my name is Itamar and I am 16 years old. I started when I was 14 and I learned wb development for 2 years. I am self tought and built a lot of projects, recently I learned react and started doing a litle bit of backend and webSockets but I am more focused at frontend development. I love coding and I have been doing it for fun and I built most of the projects for friends and family"
+    const text = "hey, my name is Itamar and I am 16 years old. I started coding when I was 14 and I learned wb development for 2 years. I am self tought and built a lot of projects, recently I learned react and started doing a litle bit of backend and webSockets but I am more focused at frontend development. I love coding and I have been coding for fun and I built most of the projects for friends and family.";
     const boxRef = useRef(null);
     const textElementRef = useRef(null);
     const imgref = useRef(null);
@@ -18,6 +18,12 @@ const About = () => {
     let imgAnimationDelay = false;
     const [isIconAnimation,setIsIconAnimation] = useState(false);
     const dispatch = useDispatch();
+
+    const htmlRef = useRef(null);
+    const cssRef = useRef(null);
+    const sassRef = useRef(null);
+    const reactRef = useRef(null);
+    const nodejsRef = useRef(null);
 
     useEffect(()=>{
         matchBoxHeightToChildren();
@@ -98,6 +104,7 @@ const About = () => {
             element.style.opacity = "1";
         }else{
             setIsIconAnimation(true);
+            startIconAnimation();
         }
     }
 
@@ -113,6 +120,7 @@ const About = () => {
             element.style.opacity = "0";
         }else{
             setIsIconAnimation(false);
+            endIconAnimation();
         }
     }
 
@@ -141,6 +149,38 @@ const About = () => {
         window.open("https://github.com/Itamar12343");
     }
 
+    function startIconAnimation(){
+        htmlRef.current.style.transform = "scale(1)";
+        setTimeout(() => {
+            cssRef.current.style.transform = "scale(1)";
+            setTimeout(() => {
+                sassRef.current.style.transform = "scale(1)";
+                setTimeout(() => {
+                    reactRef.current.style.transform = "scale(1)";
+                    setTimeout(() => {
+                        nodejsRef.current.style.transform = "scale(1)";
+                    }, 100);
+                }, 100);
+            }, 100);
+        }, 100);
+    }
+
+    function endIconAnimation(){
+        htmlRef.current.style.transform = "scale(0)";
+        setTimeout(() => {
+            cssRef.current.style.transform = "scale(0)";
+            setTimeout(() => {
+                sassRef.current.style.transform = "scale(0)";
+                setTimeout(() => {
+                    reactRef.current.style.transform = "scale(0)";
+                    setTimeout(() => {
+                        nodejsRef.current.style.transform = "scale(0)";
+                    }, 100);
+                }, 100);
+            }, 100);
+        }, 100);
+    }
+
     return ( 
         <>
         <div className={style.container}>
@@ -152,11 +192,11 @@ const About = () => {
                <div className={style["skill-box"]}>
                    <h2 className={style["skill-title"]} style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}}>skills</h2>
                    <div className={style.svgs} ref={svgsRef}>
-                       <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={htmlSvg}/>
-                       <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={cssSvg}/>
-                       <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={sassSvg}/>
-                       <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={reactSvg}/>
-                       <img style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}} className={style.svg} src={nodejsSvg}/>
+                       <img className={style.svg} ref={htmlRef} src={htmlSvg}/>
+                       <img className={style.svg} ref={cssRef} src={cssSvg}/>
+                       <img className={style.svg} ref={sassRef} src={sassSvg}/>
+                       <img className={style.svg} ref={reactRef} src={reactSvg}/>
+                       <img className={style.svg} ref={nodejsRef} src={nodejsSvg}/>
                    </div>
                    <button className={style.github} onClick={open_github} style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}}>my github page</button>
                 </div>

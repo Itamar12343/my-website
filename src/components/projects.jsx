@@ -1,6 +1,8 @@
+import style from "../styles/projects.module.scss";
+
 const Projects = () => {
     return ( 
-        <div>
+        <div className={style.box}>
             
         </div>
      );
