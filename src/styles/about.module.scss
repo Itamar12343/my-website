@@ -5,12 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.container {
-    position: absolute;
-    top: 100vh;
-    width: 100%;
+    position: relative;
 }
 
 .img {
@@ -96,11 +91,9 @@
 }
 
 .skill-box {
-    height: auto;
     width: 100%;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    position: relative;
+    top: -33px;
     text-align: center;
     background-color: $glassy-black;
 }
@@ -141,4 +134,9 @@
 .github:hover {
     background-color: rgb(255, 255, 255);
     color: black;
+}
+
+.container {
+    position: sticky;
+    top: -100%;
 }

@@ -1,8 +1,7 @@
-import About from "../components/about";
 import Background from "../components/backgtound";
 import Bubble from "../components/bubble";
+import Container from "../components/container";
 import NavBar from "../components/navBar";
-import Projects from "../components/projects";
 
 const HomePage = () => {
     return ( 
@@ -10,8 +9,7 @@ const HomePage = () => {
             <NavBar/>
             <Background/>
             <Bubble/>
-            <About/>
-            <Projects/>
+            <Container/>
         </div>
      );
 }

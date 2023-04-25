@@ -183,7 +183,6 @@ const About = () => {
 
     return ( 
         <>
-        <div className={style.warper}>
         <div className={style.container}>
              <div ref={boxRef} className={style.box}>
                    <p ref={textElementRef} className={style.text}>{text}</p>
@@ -201,7 +200,6 @@ const About = () => {
                    </div>
                    <button className={style.github} onClick={open_github} style={{transform: isIconAnimation ? "scale(1)" : "scale(0)"}}>my github page</button>
                 </div>
-            </div>
             </div>
         </>
      );
