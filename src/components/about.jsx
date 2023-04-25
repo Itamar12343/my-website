@@ -24,15 +24,18 @@ const About = () => {
     const sassRef = useRef(null);
     const reactRef = useRef(null);
     const nodejsRef = useRef(null);
+    const containerRef = useRef(null);
 
     useEffect(()=>{
         matchBoxHeightToChildren();
         startObservetion();
         listenToRedux();
+        initializeStickyPosition();
     },[]);
 
     window.addEventListener("resize",()=>{
         matchBoxHeightToChildren();
+        initializeStickyPosition();
     });
 
     const imgObserver = new IntersectionObserver((entries)=>{
@@ -75,6 +78,11 @@ const About = () => {
       threshold: window.innerWidth > 938 ? 0.5 : 0.1
     });
 
+    function initializeStickyPosition(){
+        let containerHeight = window.getComputedStyle(containerRef.current).getPropertyValue("height");
+        console.log(containerHeight);
+        containerRef.current.style.top = `-${containerHeight / 2}`;
+    }
 
     function startObservetion(){
         setTimeout(() => {        
@@ -183,7 +191,7 @@ const About = () => {
 
     return ( 
         <>
-        <div className={style.container}>
+        <div className={style.container} ref={containerRef}>
              <div ref={boxRef} className={style.box}>
                    <p ref={textElementRef} className={style.text}>{text}</p>
                    <div className={style.img} ref={imgref}></div>
